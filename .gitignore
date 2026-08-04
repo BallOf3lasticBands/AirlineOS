@@ -1,2 +1,8 @@
 
 TODO
+config/db.credentials.php
+config/google.maps.php
+vendor/
+*.log
+public/1.htaccess
+1.htaccess
