@@ -19,7 +19,7 @@ $flight_result = false;
 
 if ($boardingpass_data) {
     $flightnr = (int)$boardingpass_data['flightnr'];
-    $flight_query = "SELECT * FROM flight WHERE flight_id = $flightnr";
+    $flight_query = "SELECT * FROM flight WHERE id = $flightnr";
     $flight_result = mysqli_query($db_connect, $flight_query);
 
     if (!$flight_result) {
@@ -194,6 +194,14 @@ h1 span {
                         <h2><?php echo htmlspecialchars($config_data['title']); ?></h2>
                         <span>id</span>
                         </div>
+                        <div class="time">
+                        <h2><?php echo htmlspecialchars($flight_data['flight_id'] ?? 'N/A'); ?></h2>
+                        <span>flightnr</span>
+                        </div>
+                        <div class="time">
+                        <h2><?php echo htmlspecialchars($boardingpass_data['seat'] ?? 'N/A'); ?></h2>
+                        <span>seat</span>
+                        </div>
                         <div class="name">
                         <h2><?php echo htmlspecialchars($boardingpass_data['passenger_first']); ?> <?php echo htmlspecialchars($boardingpass_data['passenger_last']); ?></h2>
                         <span>Boarding pass</span>
@@ -214,12 +222,28 @@ h1 span {
                         <h2><?php echo htmlspecialchars($flight_data['dep_time'] ?? 'N/A'); ?></h2>
                         <span>time</span>
                         </div>
+                        <div class="time">
+                        <h2><?php echo htmlspecialchars($flight_data['departure_airport'] ?? 'N/A'); ?></h2>
+                        <span>date</span>
+                        </div>
+                        <div class="time">
+                        <h2><?php echo htmlspecialchars($flight_data['arrival_airport'] ?? 'N/A'); ?></h2>
+                        <span>time</span>
+                        </div>
                     </div>
                     <div class="card cardRight">
                         <div class="eye"></div>
                         <div class="number">
-                        <h3>156</h3>
+                        <h3><?php echo htmlspecialchars($boardingpass_data['passenger_first']); ?> <?php echo htmlspecialchars($boardingpass_data['passenger_last']); ?></h3>
                         <span>seat</span>
+                        </div>
+                        <div class="number">
+                        <h3><?php echo htmlspecialchars($boardingpass_data['seat'] ?? 'N/A'); ?></h3>
+                        <span>seat</span>
+                        </div>
+                        <div class="number">
+                        <h3><?php echo htmlspecialchars($boardingpass_data['bags'] ?? 'N/A'); ?></h3>
+                        <span>bags</span>
                         </div>
                         <div class="barcode"></div>
                     </div>
