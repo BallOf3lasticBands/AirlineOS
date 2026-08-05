@@ -3,8 +3,17 @@ require_once __DIR__ . '/../../includes/config.php';
 $require_admin = true; // protect this page for admin users only
 require_once __DIR__ . '/../../includes/auth.php';
 
-$query = 'SELECT * FROM customers LIMIT 200';
-$result = mysqli_query($db_connect, $query);
+$general_query = 'SELECT * FROM settingsindex WHERE category="general" LIMIT 200';
+$general_result = mysqli_query($db_connect, $general_query);
+
+$style_query = 'SELECT * FROM settingsindex WHERE category="style" LIMIT 200';
+$style_result = mysqli_query($db_connect, $style_query);
+
+$module_query = 'SELECT * FROM settingsindex WHERE category="modules" LIMIT 200';
+$module_result = mysqli_query($db_connect, $module_query);
+
+$system_query = 'SELECT * FROM settingsindex WHERE category="system" LIMIT 200';
+$system_result = mysqli_query($db_connect, $system_query);
 
 $page_title = 'Administration';
 require_once __DIR__ . '/../../includes/header.php';
@@ -25,21 +34,45 @@ require_once __DIR__ . '/../../includes/header.php';
 </div>
 
 <div id="general" class="tabcontent">
-  <p>No settings yet</p>
+    <?php if ($general_result && $general_result->num_rows > 0): ?>
+    <?php while ($general_data = mysqli_fetch_assoc($general_result)): ?>
+        <a href="<?= htmlspecialchars($general_data['settingurl']) ?>"><?= htmlspecialchars($general_data['settingname']) ?></a>
+    <?php endwhile; ?>
+    <?php else: ?>
+        <p>No settings yet</p>
+    <?php endif; ?>
 </div>
 
 <div id="style" class="tabcontent">
-  <p>No settings yet</p>
+    <?php if ($style_result && $style_result->num_rows > 0): ?>
+    <?php while ($style_data = mysqli_fetch_assoc($style_result)): ?>
+        <a href="<?= htmlspecialchars($style_data['settingurl']) ?>"><?= htmlspecialchars($style_data['settingname']) ?></a>
+    <?php endwhile; ?>
+    <?php else: ?>
+        <p>No settings yet</p>
+    <?php endif; ?>
 </div>
 
 <div id="modules" class="tabcontent">
-  <a href="./modules.php">Module management</a>
+    <?php if ($module_result && $module_result->num_rows > 0): ?>
+    <?php while ($modules_data = mysqli_fetch_assoc($module_result)): ?>
+        <a href="<?= htmlspecialchars($modules_data['settingurl']) ?>"><?= htmlspecialchars($modules_data['settingname']) ?></a>
+    <?php endwhile; ?>
+    <?php else: ?>
+        <p>No settings yet</p>
+    <?php endif; ?>
 </div>
 
 <div id="system" class="tabcontent">
-  <p>No settings yet</p>
+    <?php if ($system_result && $system_result->num_rows > 0): ?>
+    <?php while ($system_data = mysqli_fetch_assoc($system_result)): ?>
+        <a href="<?= htmlspecialchars($system_data['settingurl']) ?>"><?= htmlspecialchars($system_data['settingname']) ?></a>
+    <?php endwhile; ?>
+    <?php else: ?>
+        <p>No settings yet</p>
+    <?php endif; ?>
 </div>
 </div>
 </div>
-
+<?php if ($result) { mysqli_free_result($result); } ?>
 <?php require_once __DIR__ . '/../../includes/footer.php';
