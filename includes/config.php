@@ -10,3 +10,11 @@ if (session_status() === PHP_SESSION_NONE) {
 // Application defaults
 define('APP_NAME', 'AirlineOS');
 define('APP_BASE_URL', '/');
+
+// Modules system (scans modules folder)
+require_once __DIR__ . '/modules.php';
+
+// Initialize modules (creates tables and loads active modules)
+if (isset($db_connect)) {
+    modules_init($db_connect);
+}

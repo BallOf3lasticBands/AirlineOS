@@ -1,0 +1,8 @@
+{
+  "id": "test_module",
+  "name": "Test Module",
+  "version": "1.0.0",
+  "entry": "ModuleMain.php",
+  "description": "A simple test module that shows a colored Test module label and provides one admin setting.",
+  "placement": { "admin_page": "appearance", "weight": 10 }
+}

@@ -8,6 +8,12 @@ $result = mysqli_query($db_connect, $query);
 $page_title = 'Customer List';
 require_once __DIR__ . '/../includes/header.php';
 ?>
+<?php
+// If a module exposes a render function for the public index, call it.
+if (function_exists('render_test_module_box')) {
+    echo render_test_module_box();
+}
+?>
 <div class="row">
     <div class="col-md-12">
         <div class="d-flex justify-content-between align-items-center mb-4">
