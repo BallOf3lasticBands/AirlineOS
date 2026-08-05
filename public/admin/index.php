@@ -36,7 +36,7 @@ require_once __DIR__ . '/../../includes/header.php';
 <div id="general" class="tabcontent">
     <?php if ($general_result && $general_result->num_rows > 0): ?>
     <?php while ($general_data = mysqli_fetch_assoc($general_result)): ?>
-        <a href="<?= htmlspecialchars($general_data['settingurl']) ?>"><?= htmlspecialchars($general_data['settingname']) ?></a>
+        <p>cialchars($general_data['settingurl']) ?>"><?= htmlspecialchars($general_data['settingname']) ?></a></p>
     <?php endwhile; ?>
     <?php else: ?>
         <p>No settings yet</p>
@@ -46,7 +46,7 @@ require_once __DIR__ . '/../../includes/header.php';
 <div id="style" class="tabcontent">
     <?php if ($style_result && $style_result->num_rows > 0): ?>
     <?php while ($style_data = mysqli_fetch_assoc($style_result)): ?>
-        <a href="<?= htmlspecialchars($style_data['settingurl']) ?>"><?= htmlspecialchars($style_data['settingname']) ?></a>
+        <p><a href="<?= htmlspecialchars($style_data['settingurl']) ?>"><?= htmlspecialchars($style_data['settingname']) ?></a></p>
     <?php endwhile; ?>
     <?php else: ?>
         <p>No settings yet</p>
@@ -56,7 +56,7 @@ require_once __DIR__ . '/../../includes/header.php';
 <div id="modules" class="tabcontent">
     <?php if ($module_result && $module_result->num_rows > 0): ?>
     <?php while ($modules_data = mysqli_fetch_assoc($module_result)): ?>
-        <a href="<?= htmlspecialchars($modules_data['settingurl']) ?>"><?= htmlspecialchars($modules_data['settingname']) ?></a>
+        <p><a href="<?= htmlspecialchars($modules_data['settingurl']) ?>"><?= htmlspecialchars($modules_data['settingname']) ?></a></p>
     <?php endwhile; ?>
     <?php else: ?>
         <p>No settings yet</p>
@@ -66,7 +66,7 @@ require_once __DIR__ . '/../../includes/header.php';
 <div id="system" class="tabcontent">
     <?php if ($system_result && $system_result->num_rows > 0): ?>
     <?php while ($system_data = mysqli_fetch_assoc($system_result)): ?>
-        <a href="<?= htmlspecialchars($system_data['settingurl']) ?>"><?= htmlspecialchars($system_data['settingname']) ?></a>
+        <p><a href="<?= htmlspecialchars($system_data['settingurl']) ?>"><?= htmlspecialchars($system_data['settingname']) ?></a></p>
     <?php endwhile; ?>
     <?php else: ?>
         <p>No settings yet</p>
