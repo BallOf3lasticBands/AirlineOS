@@ -40,6 +40,7 @@ $modules = modules_list_filesystem();
 <div class="row">
     <div class="col-md-12">
         <h2>Installed Modules</h2>
+        <a href="./index.php">Back</a>
         <table class="table">
             <thead>
                 <tr><th>Slug</th><th>Name</th><th>Version</th><th>Action</th></tr>
