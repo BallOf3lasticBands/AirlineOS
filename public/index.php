@@ -48,13 +48,13 @@ if (function_exists('render_test_module_box')) {
                             <td><?= htmlspecialchars((new DateTime($customer_data['created']))->format('Y-m-d')) ?></td>
                             <td>
                                 <a href="edit.php?customer_id=<?= urlencode($customer_data['customer_id']) ?>" class="btn btn-primary">Edit</a>
-                                <a href="/functions/delete.php?customer_id=<?= urlencode($customer_data['customer_id']) ?>" class="btn btn-danger">Delete</a>
+                                <a href="/../functions/delete.php?customer_id=<?= urlencode($customer_data['customer_id']) ?>" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     <?php endwhile; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="6">No data available\!</td>
+                        <td colspan="6">No data available!</td>
                     </tr>
                 <?php endif; ?>
             </tbody>
