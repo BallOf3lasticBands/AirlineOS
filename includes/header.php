@@ -7,6 +7,7 @@
     <?php if (!empty($extra_head)): ?>
         <?= $extra_head ?>
     <?php endif; ?>
+    <link rel="stylesheet" href="/../public/assets/css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
