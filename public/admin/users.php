@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../../includes/config.php';
+$require_admin = true; // protect this page for admin users only
 require_once __DIR__ . '/../../includes/auth.php';
 
 
